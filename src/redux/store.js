@@ -1,11 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import topCountriesReducer from "./topCountriesReducer";
 import leagueReducer from "./leaugueReducer";
-import teamFixtureReducer from "./teamFixtureReducer";
+import teamReducer from "./teamReducer";
 const reducers = combineReducers({
   topCountriesReducer,
   leagueReducer,
-  teamFixtureReducer,
+  teamReducer,
 });
 const store = createStore(
   reducers,

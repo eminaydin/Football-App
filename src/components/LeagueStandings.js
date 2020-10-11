@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Table } from "semantic-ui-react";
 const LeagueStandings = () => {
   const state = useSelector((state) => state.leagueReducer.league);
@@ -16,10 +16,9 @@ const LeagueStandings = () => {
     var hey = teamNamesinStandings.find((teamName) => teamName == teamNames);
     console.log(hey);
   }; */
-  let match = useRouteMatch();
-  console.log(match);
+
   return (
-    <Table celled>
+    <Table celled selectable>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>#</Table.HeaderCell>

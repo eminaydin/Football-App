@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Flag, Header, Icon, Image, Table } from "semantic-ui-react";
+import { Flag, Header, Table } from "semantic-ui-react";
 import { fetchByCountry } from "../helpers/fetchFunctions";
 
 const CountriesTable = () => {
@@ -11,7 +11,7 @@ const CountriesTable = () => {
   useEffect(() => {
     reduxState.length <= 0 &&
       fetchByCountry(["PL", "BL1", "SA", "PD", "FL1"], dispatch);
-  }, []);
+  }, [dispatch, reduxState.length]);
   return (
     <Table basic="very" celled collapsing>
       <Table.Header>

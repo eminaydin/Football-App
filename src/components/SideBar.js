@@ -1,13 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  Link,
-  Route,
-  Switch,
-  useLocation,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import EntryMessage from "./EntryMessage";
 import Leagues from "./Leagues";
@@ -16,7 +9,6 @@ import TeamView from "./TeamView";
 
 const SideBar = () => {
   const [visible, setVisible] = useState(true);
-  const currentRoute = useLocation().pathname;
   const leagueState = useSelector((state) => state.leagueReducer.league);
   return (
     <Fragment>

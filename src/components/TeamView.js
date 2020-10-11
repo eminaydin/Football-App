@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMatches } from "../helpers/fetchFunctions";
-import { Segment, Image } from "semantic-ui-react";
+import { fetchMatches, fetchTeam } from "../helpers/fetchFunctions";
+import BasicTeamInformation from "./BasicTeamInformation";
+import NumericalInfo from "./NumericalInfo";
+import TeamSquad from "./TeamSquad";
 const TeamView = (props) => {
   const dispatch = useDispatch();
   const teamArr = useSelector(
     (state) => state.leagueReducer.league.standings[0].table
   );
-  const [teamId, setTeamId] = useState();
   useEffect(() => {
-    setTeamId(findTheTeam());
+    var teamId = findTheTeam();
     fetchMatches(teamId, dispatch);
+    fetchTeam(teamId, dispatch);
   }, []);
   const findTheTeam = () => {
     const teamNames = props.match.params.teamName;
@@ -22,11 +24,17 @@ const TeamView = (props) => {
     );
     let indexOfTheTeam = teamNamesinStandings.indexOf(findTheTeam);
     let teamToDisplay = teamArr[indexOfTheTeam];
-    console.log(teamToDisplay.team.id);
     return teamToDisplay.team.id;
   };
 
-  return <div className="photoContainer"></div>;
+  return (
+    <Fragment>
+      <div className="photoContainer"></div>
+      <BasicTeamInformation />
+      <NumericalInfo />
+      <TeamSquad />
+    </Fragment>
+  );
 };
 
 export default TeamView;

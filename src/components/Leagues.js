@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Divider, Grid, Image, Segment } from "semantic-ui-react";
+import { Divider, Grid, Segment } from "semantic-ui-react";
 import CountriesTable from "./CountriesTable";
 import MapChart from "./MapChart";
 

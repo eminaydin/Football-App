@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Table } from "semantic-ui-react";
+import { Image, Table } from "semantic-ui-react";
 const LeagueStandings = () => {
   const state = useSelector((state) => state.leagueReducer.league);
-  const standings = state.standings[0].table;
+  const standings = state?.standings[0].table;
   /*   const leagueState = useSelector((state) => state.leagueReducer.league);
   const teamNames = "atalantabc";
   const teamArr = leagueState.standings[0].table;
@@ -34,17 +34,18 @@ const LeagueStandings = () => {
       </Table.Header>
 
       <Table.Body>
-        {standings.map((teamStanding) => {
+        {standings?.map((teamStanding) => {
           return (
             <Table.Row key={teamStanding.team.id}>
               <Table.Cell>{teamStanding.position}</Table.Cell>
               <Table.Cell className="clubName">
+                <Image src={teamStanding.team.crestUrl} inline size="mini" />
                 <Link
                   to={`/teams/${teamStanding.team.name
                     .replace(/\s/g, "")
                     .toLowerCase()}`}
                 >
-                  {teamStanding.team.name}
+                  <span> {teamStanding.team.name}</span>
                 </Link>
               </Table.Cell>
               <Table.Cell>{teamStanding.playedGames}</Table.Cell>

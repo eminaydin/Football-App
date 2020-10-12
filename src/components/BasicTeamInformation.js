@@ -6,12 +6,12 @@ const BasicTeamInformation = () => {
   const state = useSelector((state) => state.teamReducer.teamInfo);
 
   const findTheCoach = () => {
-    let coach = state?.squad.find(({ role }) => role === "COACH").name;
+    let coach = state?.squad.find(({ role }) => role === "COACH")?.name;
     return coach;
   };
   return (
     <Grid columns={5} divided>
-      <Grid.Row>
+      <Grid.Row style={{ margin: "3em" }}>
         <Grid.Column className="logoColumn">
           <Image src={state?.crestUrl} size="small" />
           <Header textAlign="center"> {state?.name}</Header>

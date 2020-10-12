@@ -1,18 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Flag, Header, Table } from "semantic-ui-react";
+import { Flag, Header, Placeholder, Table } from "semantic-ui-react";
 import { fetchByCountry } from "../helpers/fetchFunctions";
+import LoadingPlaceholder from "./LoadingPlaceholder";
 
 const CountriesTable = () => {
   const reduxState = useSelector(
     (state) => state.topCountriesReducer.topCountries
   );
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
+    setLoading(true);
     reduxState.length <= 0 &&
       fetchByCountry(["PL", "BL1", "SA", "PD", "FL1"], dispatch);
+    reduxState.length > 0 &&
+      setTimeout(() => {
+        setLoading(false);
+      }, 400);
   }, [dispatch, reduxState.length]);
-  return (
+  console.log(loading);
+  return loading ? (
+    <LoadingPlaceholder />
+  ) : (
     <Table basic="very" celled collapsing>
       <Table.Header>
         <Table.Row>
@@ -22,7 +32,7 @@ const CountriesTable = () => {
       </Table.Header>
 
       <Table.Body>
-        {reduxState.map((country, index) => {
+        {reduxState.map((country) => {
           const countryName = country.competition.area.name;
           return (
             <Table.Row
@@ -49,10 +59,7 @@ const CountriesTable = () => {
                         : null
                     }
                   />
-                  <Header.Content>
-                    {country?.competition?.name}
-                    <Header.Subheader>Human Resources</Header.Subheader>
-                  </Header.Content>
+                  <Header.Content>{country?.competition?.name}</Header.Content>
                 </Header>
               </Table.Cell>
               <Table.Cell>{country?.standings[0].table.length}</Table.Cell>

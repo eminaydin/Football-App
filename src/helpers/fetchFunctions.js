@@ -35,3 +35,13 @@ export const fetchTeam = (teamId, dispatch) => {
     .then((res) => res.json())
     .then((data) => dispatch({ type: "TeamInfo Sent", payload: data }));
 };
+
+export const fetchFootballNews = (query, dispatch) => {
+  fetch(
+    `https://newsapi.org/v2/everything?q=${query}&language=en&apiKey=ca37133bec7645e0b6319c1c4d91ac34`
+  )
+    .then((res) => res.json())
+    .then((data) =>
+      dispatch({ type: "Football_News", payload: data.articles })
+    );
+};

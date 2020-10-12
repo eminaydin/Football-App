@@ -19,7 +19,6 @@ const CountriesTable = () => {
         setLoading(false);
       }, 400);
   }, [dispatch, reduxState.length]);
-  console.log(loading);
   return loading ? (
     <LoadingPlaceholder />
   ) : (

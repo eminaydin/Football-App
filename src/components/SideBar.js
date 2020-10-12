@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
@@ -6,10 +6,12 @@ import EntryMessage from "./EntryMessage";
 import Leagues from "./Leagues";
 import LeagueStandings from "./LeagueStandings";
 import TeamView from "./TeamView";
+import football from "../assets/football.jpg";
 
 const SideBar = () => {
   const [visible, setVisible] = useState(true);
   const leagueState = useSelector((state) => state.leagueReducer.league);
+
   return (
     <Fragment>
       <Sidebar.Pushable as={Segment} className="mainDiv">
@@ -21,12 +23,13 @@ const SideBar = () => {
           vertical
           visible={visible}
           width="thin"
+          style={{ backgroundImage: `url(${football})` }}
         >
           <Menu.Item as={Link} to="/leagues">
             <Icon name="home" />
             League
           </Menu.Item>
-          <Menu.Item as="a">
+          <Menu.Item as={Link} to="/">
             <Icon name="gamepad" />
             Cups
           </Menu.Item>
@@ -44,7 +47,7 @@ const SideBar = () => {
             size="big"
             circular
           />
-          <Segment basic>
+          <Segment basic style={{ width: "80%", margin: "auto" }}>
             <Switch>
               <Route
                 path="/teams/:teamName"

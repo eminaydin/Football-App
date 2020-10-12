@@ -9,8 +9,7 @@ const NextMatch = () => {
   let nextMatch = teamFixture?.matches.find(
     (match) => match.status === "SCHEDULED"
   );
-  console.log(teamInfo);
-  console.log(nextMatch);
+
   var formattedDate = moment
     .utc(nextMatch?.utcDate)
     .local()

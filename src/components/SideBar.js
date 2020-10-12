@@ -7,6 +7,7 @@ import Leagues from "./Leagues";
 import LeagueStandings from "./LeagueStandings";
 import TeamView from "./TeamView";
 import football from "../assets/football.jpg";
+import NewsCarousel from "./NewsCarousel";
 
 const SideBar = () => {
   const [visible, setVisible] = useState(true);
@@ -58,6 +59,7 @@ const SideBar = () => {
                 render={() => (
                   <Fragment>
                     <Leagues />
+                    <NewsCarousel />
                     {leagueState && <LeagueStandings />}
                   </Fragment>
                 )}

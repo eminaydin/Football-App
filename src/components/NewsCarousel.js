@@ -19,11 +19,11 @@ const NewsCarousel = () => {
     <Carousel autoPlay>
       {state?.map((news) => {
         return loading ? (
-          <Placeholder fluid>
+          <Placeholder fluid key={news.url}>
             <Placeholder.Image square />
           </Placeholder>
         ) : (
-          <div>
+          <div key={news.url}>
             <img src={news.urlToImage} />
             <p className="legend">{news.title}</p>
           </div>

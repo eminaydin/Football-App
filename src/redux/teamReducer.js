@@ -5,9 +5,9 @@ const initialState = {
 
 const teamReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Team Sent":
+    case "Team_Sent":
       return { ...state, fixture: action.payload };
-    case "TeamInfo Sent":
+    case "TeamInfo_Sent":
       return { ...state, teamInfo: action.payload };
     default:
       return state;

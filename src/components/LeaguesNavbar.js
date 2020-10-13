@@ -1,9 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Menu } from "semantic-ui-react";
+import { fetchByCountry } from "../helpers/fetchFunctions";
 
 const LeaguesNavbar = () => {
   const [activeItem, setActiveItem] = useState("Premier League");
-  const handleItemClick = (e, { name }) => setActiveItem(name);
+  const reduxState = useSelector((state) => state.leagueReducer.league);
+  console.log(reduxState);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    fetchByCountry("PL", dispatch);
+  }, []);
+  const handleItemClick = (e, { name }) => {
+    var query =
+      name == "Premier League"
+        ? "PL"
+        : name == "Bundesliga"
+        ? "BL1"
+        : name == "Primera Division"
+        ? "PD"
+        : name == "Ligue 1"
+        ? "FL1"
+        : "SA";
+    fetchByCountry(query, dispatch);
+    setActiveItem(name);
+  };
   return (
     <Menu pointing secondary>
       <Menu.Item

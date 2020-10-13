@@ -5,17 +5,6 @@ import { Image, Table } from "semantic-ui-react";
 const LeagueStandings = () => {
   const state = useSelector((state) => state.leagueReducer.league);
   const standings = state?.standings[0].table;
-  /*   const leagueState = useSelector((state) => state.leagueReducer.league);
-  const teamNames = "atalantabc";
-  const teamArr = leagueState.standings[0].table;
-  const hello = () => {
-    const teamNamesinStandings = teamArr.map((e) =>
-      e.team.name.replace(/\s/g, "").toLowerCase()
-    );
-    console.log(teamNamesinStandings);
-    var hey = teamNamesinStandings.find((teamName) => teamName == teamNames);
-    console.log(hey);
-  }; */
 
   return (
     <Table celled selectable>

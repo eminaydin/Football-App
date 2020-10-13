@@ -61,6 +61,7 @@
 .homeTeam {
   width: 200px;
   text-align: center;
+  margin-left: 2em;
 }
 .awayTeam {
   text-align: center;
@@ -72,8 +73,12 @@
   width: 10em;
 }
 .homeTeamLogo > img {
-  height: 3em;
+  height: 5em;
 }
 .awayTeamLogo > img {
-  height: 3em;
+  height: 5em;
+}
+
+.carousel-root {
+  width: 60%;
 }

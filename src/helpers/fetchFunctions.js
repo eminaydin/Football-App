@@ -45,3 +45,14 @@ export const fetchFootballNews = (query, dispatch) => {
       dispatch({ type: "Football_News", payload: data.articles })
     );
 };
+
+export const fetchFixture = (league, dispatch) => {
+  fetch(`https://api.football-data.org/v2/competitions/${league}/matches`, {
+    headers: { "X-Auth-Token": "604b78a039154828b5a414079fc148a0" },
+    url: "http://api.football-data.org/v2/matches?status='LIVE'",
+    dataType: "json",
+    type: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => dispatch({ type: "Fetch_Fixture", payload: data.matches }));
+};

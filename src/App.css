@@ -47,3 +47,33 @@
   padding: 20px;
   text-align: center;
 }
+.slider {
+  height: 30em;
+}
+
+.scoresDiv:first-child {
+  height: 150px !important;
+}
+.ui.card:first-child {
+  margin: 0px !important;
+}
+
+.homeTeam {
+  width: 200px;
+  text-align: center;
+}
+.awayTeam {
+  text-align: center;
+}
+.scoresTeams {
+  display: flex;
+  align-items: flex-start;
+  float: left;
+  width: 10em;
+}
+.homeTeamLogo > img {
+  height: 3em;
+}
+.awayTeamLogo > img {
+  height: 3em;
+}

@@ -1,6 +1,7 @@
 const initialState = {
   league: null,
   fixture: null,
+  scorers: null,
 };
 
 const leagueReducer = (state = initialState, action) => {
@@ -10,6 +11,8 @@ const leagueReducer = (state = initialState, action) => {
     case "Fetch_Fixture":
       return { ...state, fixture: action.payload };
 
+    case "Fetch_Scorers":
+      return { ...state, scorers: action.payload };
     default:
       return state;
   }

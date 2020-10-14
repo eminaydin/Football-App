@@ -51,3 +51,14 @@ export const fetchFixture = (league, dispatch) => {
     .then((res) => res.json())
     .then((data) => dispatch({ type: "Fetch_Fixture", payload: data.matches }));
 };
+
+export const fetchTopScorers = (league, dispatch) => {
+  fetch(`https://api.football-data.org/v2/competitions/${league}/scorers`, {
+    headers: { "X-Auth-Token": "604b78a039154828b5a414079fc148a0" },
+    url: "http://api.football-data.org/v2/matches?status='LIVE'",
+    dataType: "json",
+    type: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => dispatch({ type: "Fetch_Scorers", payload: data }));
+};

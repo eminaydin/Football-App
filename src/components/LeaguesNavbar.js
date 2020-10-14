@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Menu } from "semantic-ui-react";
-import { fetchByCountry } from "../helpers/fetchFunctions";
+import {
+  fetchByCountry,
+  fetchFixture,
+  fetchTopScorers,
+} from "../helpers/fetchFunctions";
 
 const LeaguesNavbar = () => {
   const [activeItem, setActiveItem] = useState("Premier League");
-  const reduxState = useSelector((state) => state.leagueReducer.league);
-  console.log(reduxState);
+  /*   const reduxState = useSelector((state) => state.leagueReducer.league); */
   const dispatch = useDispatch();
   useEffect(() => {
     fetchByCountry("PL", dispatch);
-  }, []);
+    fetchFixture("PL", dispatch);
+    fetchTopScorers("PL", dispatch);
+  }, [dispatch]);
   const handleItemClick = (e, { name }) => {
     var query =
-      name == "Premier League"
+      name === "Premier League"
         ? "PL"
-        : name == "Bundesliga"
+        : name === "Bundesliga"
         ? "BL1"
-        : name == "Primera Division"
+        : name === "Primera Division"
         ? "PD"
-        : name == "Ligue 1"
+        : name === "Ligue 1"
         ? "FL1"
         : "SA";
     fetchByCountry(query, dispatch);
+    fetchFixture(query, dispatch);
+    fetchTopScorers(query, dispatch);
     setActiveItem(name);
   };
   return (

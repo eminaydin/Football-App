@@ -14,7 +14,7 @@ const NewsCarousel = () => {
     setTimeout(() => {
       setLoading(false);
     }, 100);
-  }, []);
+  }, [dispatch]);
   return (
     <Carousel autoPlay>
       {state?.map((news) => {

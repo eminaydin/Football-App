@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import EntryMessage from "./EntryMessage";
@@ -9,11 +9,18 @@ import football from "../assets/football.jpg";
 import NewsCarousel from "./NewsCarousel";
 import LeaguesNavbar from "./LeaguesNavbar";
 import MatchSlider from "./MatchSlider";
+import TopScorers from "./TopScorers";
+import { fetchFixture } from "../helpers/fetchFunctions";
 
 const SideBar = () => {
   const [visible, setVisible] = useState(true);
-  const leagueState = useSelector((state) => state.leagueReducer.league);
-
+  const leagueState = useSelector((state) => state.leagueReducer);
+  /*   const newsState = useSelector((state) => state.newsReducer); */
+  const teamState = useSelector((state) => state.teamReducer);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    fetchFixture("PL", dispatch);
+  }, [dispatch]);
   return (
     <Fragment>
       <Sidebar.Pushable as={Segment} className="mainDiv">
@@ -53,16 +60,21 @@ const SideBar = () => {
             <Switch>
               <Route
                 path="/teams/:teamName"
-                render={(props) => <TeamView {...props} />}
+                render={(props) => (
+                  <TeamView teamState={teamState} {...props} />
+                )}
               />
               <Route
                 path="/leagues"
                 render={() => (
                   <Fragment>
-                    <MatchSlider />
-                    <LeaguesNavbar />
-                    <NewsCarousel />
-                    <LeagueStandings />
+                    <MatchSlider leagueState={leagueState} />
+                    <LeaguesNavbar leagueState={leagueState} />
+                    <div className="middleSection">
+                      <NewsCarousel />
+                      <TopScorers leagueState={leagueState} />
+                    </div>
+                    <LeagueStandings leagueState={leagueState} />
                   </Fragment>
                 )}
               />

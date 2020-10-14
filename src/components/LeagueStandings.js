@@ -1,11 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Image, Table } from "semantic-ui-react";
-const LeagueStandings = () => {
-  const state = useSelector((state) => state.leagueReducer.league);
-  const standings = state?.standings[0].table;
-
+const LeagueStandings = ({ leagueState }) => {
+  const standings = leagueState?.league?.standings[0].table;
   return (
     <Table celled selectable>
       <Table.Header>

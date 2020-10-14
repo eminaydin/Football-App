@@ -82,3 +82,7 @@
 .carousel-root {
   width: 60%;
 }
+.middleSection {
+  display: flex;
+  justify-content: space-between;
+}

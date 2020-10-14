@@ -1,8 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Header, Segment } from "semantic-ui-react";
-const NumericalInfo = () => {
-  const state = useSelector((state) => state.teamReducer.teamInfo);
+const NumericalInfo = ({ teamState }) => {
+  const state = teamState?.teamInfo;
   const square = { width: 175, height: 175 };
   const squadLength = state?.squad.filter(
     (players) => players.position !== null

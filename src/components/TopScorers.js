@@ -14,17 +14,17 @@ const TopScorers = ({ leagueState }) => {
       </Table.Header>
 
       <Table.Body>
-        {scorers?.scorers.map(({ numberOfGoals, player, team, index }) => {
+        {scorers?.scorers?.map(({ numberOfGoals, player, team, index }) => {
+          let teamId = team.id;
+          let teamLogo = leagueState?.league?.standings[0].table?.find(
+            (club) => club.team.id === teamId
+          )?.team.crestUrl;
           return (
             <Table.Row>
               <Table.Cell>{index}</Table.Cell>
               <Table.Cell>
                 <Header as="h4" image>
-                  <Image
-                    src="https://react.semantic-ui.com/images/avatar/small/lena.png"
-                    rounded
-                    size="mini"
-                  />
+                  <Image src={teamLogo} rounded size="mini" />
                   <Header.Content>
                     {player.name}
                     <Header.Subheader>{team.name}</Header.Subheader>

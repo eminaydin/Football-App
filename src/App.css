@@ -1,12 +1,21 @@
 .mainDiv {
   min-height: 100vh !important;
 }
+body {
+  background: unset !important;
+}
+#root {
+  background-image: linear-gradient(60deg, #e8e7ef, #dbdae9);
+}
 .tableRow:hover {
   background-color: #8080806e;
   cursor: pointer;
 }
+.ui.segment {
+  background: inherit !important;
+}
 .sideBarIcon {
-  margin: 0.3em !important;
+  margin: 0.7em !important;
   transition: 0.5s ease;
 }
 .sideBarIcon:hover {
@@ -85,4 +94,13 @@
 .middleSection {
   display: flex;
   justify-content: space-between;
+}
+
+.awayScore {
+  font-size: 30px;
+  margin-top: 0.5em;
+}
+.homeScore {
+  font-size: 30px;
+  margin-top: 0.5em;
 }

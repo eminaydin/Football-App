@@ -29,22 +29,19 @@ const SideBar = () => {
           animation="scale down"
           icon="labeled"
           inverted
+          direction="top"
           vertical
           visible={visible}
           width="thin"
           style={{ backgroundImage: `url(${football})` }}
         >
-          <Menu.Item as={Link} to="/leagues">
-            <Icon name="home" />
-            League
-          </Menu.Item>
           <Menu.Item as={Link} to="/">
-            <Icon name="gamepad" />
-            Cups
+            <Icon name="home" />
+            Home
           </Menu.Item>
-          <Menu.Item as="a">
-            <Icon name="camera" />
-            News
+          <Menu.Item as={Link} to="/leagues">
+            <Icon name="gamepad" />
+            Leagues
           </Menu.Item>
         </Sidebar>
 

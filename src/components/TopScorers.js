@@ -7,21 +7,19 @@ const TopScorers = ({ leagueState }) => {
     <Table basic="very" celled collapsing>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>#</Table.HeaderCell>
           <Table.HeaderCell>Player</Table.HeaderCell>
           <Table.HeaderCell>Goals</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
       <Table.Body>
-        {scorers?.scorers?.map(({ numberOfGoals, player, team, index }) => {
+        {scorers?.scorers?.map(({ numberOfGoals, player, team }) => {
           let teamId = team.id;
           let teamLogo = leagueState?.league?.standings[0].table?.find(
             (club) => club.team.id === teamId
           )?.team.crestUrl;
           return (
             <Table.Row>
-              <Table.Cell>{index}</Table.Cell>
               <Table.Cell>
                 <Header as="h4" image>
                   <Image src={teamLogo} rounded size="mini" />

@@ -32,7 +32,6 @@ const TeamView = (props) => {
     <Fragment>
       <NextMatch teamInfo={teamInfo} />
       <BasicTeamInformation />
-      <NumericalInfo />
       <TeamSquad />
     </Fragment>
   );

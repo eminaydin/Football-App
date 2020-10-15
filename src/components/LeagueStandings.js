@@ -4,7 +4,7 @@ import { Image, Table } from "semantic-ui-react";
 const LeagueStandings = ({ leagueState }) => {
   const standings = leagueState?.league?.standings[0].table;
   return (
-    <Table celled selectable>
+    <Table celled selectable inverted>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>#</Table.HeaderCell>
@@ -31,7 +31,10 @@ const LeagueStandings = ({ leagueState }) => {
                     .replace(/\s/g, "")
                     .toLowerCase()}`}
                 >
-                  <span> {teamStanding.team.name}</span>
+                  <span style={{ color: "white" }}>
+                    {" "}
+                    {teamStanding.team.name}
+                  </span>
                 </Link>
               </Table.Cell>
               <Table.Cell>{teamStanding.playedGames}</Table.Cell>

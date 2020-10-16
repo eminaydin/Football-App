@@ -47,7 +47,7 @@ const SideBar = () => {
 
         <Sidebar.Pusher>
           <Icon
-            name={visible ? "angle double left" : "angle double right"}
+            name={visible ? "angle double up" : "angle double down"}
             className="sideBarIcon"
             onClick={() => setVisible(!visible)}
             size="big"

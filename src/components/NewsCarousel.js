@@ -25,7 +25,9 @@ const NewsCarousel = () => {
         ) : (
           <div key={news.url}>
             <img src={news.urlToImage} />
-            <p className="legend">{news.title}</p>
+            <a href={news.url} target="_blank">
+              <p className="legend">{news.title}</p>
+            </a>
           </div>
         );
       })}

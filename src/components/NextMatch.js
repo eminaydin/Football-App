@@ -21,22 +21,34 @@ const NextMatch = () => {
     let ourTeam = teamInfo?.find(({ team }) => team.id === teamId);
     return ourTeam?.team.crestUrl;
   };
+  const styles = {
+    color: "white",
+  };
   return (
     <Fragment>
       <div className="fixtureContainer"></div>
       <Grid columns={3} divided className="bg-text">
         <Grid.Row>
-          <Grid.Column className="logoColumn">
+          <Grid.Column className="logoColumn" verticalAlign="middle">
             <Image src={getTeamLogo("home")} size="small" />
-            <Header as="h5">{nextMatch?.homeTeam.name}</Header>
+            <Header as="h1" style={{ color: styles.color }}>
+              {nextMatch?.homeTeam.name}
+            </Header>
           </Grid.Column>
           <Grid.Column verticalAlign="middle">
-            <Header as="h2">Upcoming Match</Header>
-            <Header as="h1"> {formattedDate}</Header>
+            <Header as="h2" style={{ color: styles.color }}>
+              Upcoming Match
+            </Header>
+            <Header as="h1" style={{ color: styles.color }}>
+              {" "}
+              {formattedDate}
+            </Header>
           </Grid.Column>
-          <Grid.Column className="logoColumn">
+          <Grid.Column className="logoColumn" verticalAlign="middle">
             <Image src={getTeamLogo("away")} size="small" />
-            <Header as="h5">{nextMatch?.awayTeam.name}</Header>
+            <Header as="h1" style={{ color: styles.color }}>
+              {nextMatch?.awayTeam.name}
+            </Header>
           </Grid.Column>
         </Grid.Row>
       </Grid>

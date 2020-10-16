@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Image, Segment, Table } from "semantic-ui-react";
 const LeagueStandings = ({ leagueState }) => {
-  const standings = leagueState?.league?.standings[0].table;
+  const standings = leagueState?.league?.standings[0]?.table;
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);

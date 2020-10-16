@@ -27,10 +27,10 @@ const MatchSlider = ({ leagueState }) => {
                 /*      console.log(homeTeam);
                 console.log(awayTeam); */
                 return (
-                  <Fragment>
+                  <Fragment key={homeTeam.team.id}>
                     <div className="homeTeam">
                       <div className="homeTeamLogo">
-                        <img src={homeTeam?.team?.crestUrl} />
+                        <img src={homeTeam?.team?.crestUrl} alt="home Logo" />
                       </div>
                       <div className="homeScore" style={{ color: "#c91116" }}>
                         {match.score.fullTime.homeTeam}
@@ -38,7 +38,7 @@ const MatchSlider = ({ leagueState }) => {
                     </div>
                     <div className="awayTeam">
                       <div className="awayTeamLogo">
-                        <img src={awayTeam?.team?.crestUrl} />
+                        <img src={awayTeam?.team?.crestUrl} alt="away Logo" />
                       </div>
                       <div className="awayScore" style={{ color: "#c91116" }}>
                         {match.score.fullTime.awayTeam}

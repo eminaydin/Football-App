@@ -1,4 +1,4 @@
-#Football App
+# Football App
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ If you are a soccer fan who likes to keep him/herself updated about the major le
 
 ## Contact
 
-Created by @eminaydin - feel free to contact me for inquiries!
+Created by [@eminaydin] - feel free to contact me for any inquiries!
 
 ## Copyrights
 

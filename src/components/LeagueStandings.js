@@ -6,7 +6,7 @@ const LeagueStandings = ({ leagueState }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    standings != undefined && setLoading(false);
+    standings !== undefined && setLoading(false);
   }, [standings]);
   return (
     <Segment basic loading={loading}>

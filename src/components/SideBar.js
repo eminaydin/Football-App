@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
-import EntryMessage from "./EntryMessage";
 import LeagueStandings from "./LeagueStandings";
 import TeamView from "./TeamView";
 import football from "../assets/football.jpg";

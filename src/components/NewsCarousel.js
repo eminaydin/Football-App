@@ -24,8 +24,8 @@ const NewsCarousel = () => {
           </Placeholder>
         ) : (
           <div key={news.url}>
-            <img src={news.urlToImage} />
-            <a href={news.url} target="_blank">
+            <img src={news.urlToImage} alt="news" />
+            <a href={news.url} target="_blank" rel="noopener noreferrer">
               <p className="legend">{news.title}</p>
             </a>
           </div>

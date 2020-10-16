@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Flag, Table, Image } from "semantic-ui-react";
+import { Flag, Table } from "semantic-ui-react";
 import moment from "moment";
 
 const TeamSquad = () => {

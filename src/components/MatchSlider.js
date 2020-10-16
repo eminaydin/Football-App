@@ -14,7 +14,6 @@ const MatchSlider = ({ leagueState }) => {
     <Segment basic loading={loading}>
       <HorizontalScroll className="scoresDiv">
         <div className="scoresTeams">
-          {console.log()}
           {standings != null &&
             fixture
               ?.filter((e) => e.score.fullTime.homeTeam !== null)

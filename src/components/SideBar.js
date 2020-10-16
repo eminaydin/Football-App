@@ -39,10 +39,6 @@ const SideBar = () => {
             <Icon name="home" />
             Home
           </Menu.Item>
-          <Menu.Item as={Link} to="/leagues">
-            <Icon name="gamepad" />
-            Leagues
-          </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher>
@@ -53,6 +49,7 @@ const SideBar = () => {
             size="big"
             circular
           />
+
           <Segment basic style={{ width: "80%", margin: "auto" }}>
             <Switch>
               <Route
@@ -61,7 +58,7 @@ const SideBar = () => {
                   <TeamView teamState={teamState} {...props} />
                 )}
               />
-              <Route
+              {/*          <Route
                 path="/leagues"
                 render={() => (
                   <Fragment>
@@ -74,8 +71,22 @@ const SideBar = () => {
                     <LeagueStandings leagueState={leagueState} />
                   </Fragment>
                 )}
+              /> */}
+              <Route
+                path="/"
+                exact
+                render={() => (
+                  <Fragment>
+                    <MatchSlider leagueState={leagueState} />
+                    <LeaguesNavbar leagueState={leagueState} />
+                    <div className="middleSection">
+                      <NewsCarousel />
+                      <TopScorers leagueState={leagueState} />
+                    </div>
+                    <LeagueStandings leagueState={leagueState} />
+                  </Fragment>
+                )}
               />
-              <Route path="/" exact render={() => <EntryMessage />} />
             </Switch>
           </Segment>
         </Sidebar.Pusher>

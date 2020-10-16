@@ -8,7 +8,6 @@ const LeagueStandings = ({ leagueState }) => {
     setLoading(true);
     standings != undefined && setLoading(false);
   }, [standings]);
-  console.log(standings);
   return (
     <Segment basic loading={loading}>
       <Table celled selectable basic>

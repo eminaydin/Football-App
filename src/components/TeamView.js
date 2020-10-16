@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMatches, fetchTeam } from "../helpers/fetchFunctions";
 import BasicTeamInformation from "./BasicTeamInformation";
-import NumericalInfo from "./NumericalInfo";
 import NextMatch from "./NextMatch";
 import TeamSquad from "./TeamSquad";
 const TeamView = (props) => {

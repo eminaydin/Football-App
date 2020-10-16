@@ -8,7 +8,6 @@ const NumericalInfo = () => {
     (players) => players.position !== null
   ).length;
 
-  console.log(state);
   return (
     <Segment basic textAlign="center" style={{ textAlign: "-webkit-center" }}>
       <Segment circular style={square}>

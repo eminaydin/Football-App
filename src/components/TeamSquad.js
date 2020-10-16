@@ -7,7 +7,7 @@ const TeamSquad = () => {
   const state = useSelector((state) => state.teamReducer.teamInfo);
   const players = state?.squad.filter((players) => players.position !== null);
   return (
-    <Table celled selectable>
+    <Table celled selectable basic>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Position</Table.HeaderCell>

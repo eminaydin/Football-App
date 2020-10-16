@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Menu } from "semantic-ui-react";
 import {
   fetchByCountry,
@@ -9,14 +9,17 @@ import {
 
 const LeaguesNavbar = () => {
   const [activeItem, setActiveItem] = useState("Premier League");
-  /*   const reduxState = useSelector((state) => state.leagueReducer.league); */
+  const reduxState = useSelector((state) => state.leagueReducer.league);
   const dispatch = useDispatch();
   useEffect(() => {
     fetchByCountry("PL", dispatch);
     fetchFixture("PL", dispatch);
     fetchTopScorers("PL", dispatch);
+    reduxState !== undefined &&
+      dispatch({ type: "Set_Loading", payload: false });
   }, [dispatch]);
   const handleItemClick = (e, { name }) => {
+    dispatch({ type: "Set_Loading", payload: true });
     var query =
       name === "Premier League"
         ? "PL"
@@ -31,6 +34,7 @@ const LeaguesNavbar = () => {
     fetchFixture(query, dispatch);
     fetchTopScorers(query, dispatch);
     setActiveItem(name);
+    dispatch({ type: "Set_Loading", payload: false });
   };
   return (
     <Menu pointing secondary>

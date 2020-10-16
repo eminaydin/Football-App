@@ -6,7 +6,8 @@ export const fetchByCountry = (country, dispatch) => {
     type: "GET",
   })
     .then((res) => res.json())
-    .then((data) => dispatch({ type: "Fetch_League", payload: data }));
+    .then((data) => dispatch({ type: "Fetch_League", payload: data }))
+    .catch((error) => console.log(error));
 };
 
 export const fetchMatches = (teamId, dispatch) => {
@@ -17,7 +18,8 @@ export const fetchMatches = (teamId, dispatch) => {
     type: "GET",
   })
     .then((res) => res.json())
-    .then((data) => dispatch({ type: "Team_Sent", payload: data }));
+    .then((data) => dispatch({ type: "Team_Sent", payload: data }))
+    .catch((error) => console.log(error));
 };
 
 export const fetchTeam = (teamId, dispatch) => {
@@ -28,7 +30,8 @@ export const fetchTeam = (teamId, dispatch) => {
     type: "GET",
   })
     .then((res) => res.json())
-    .then((data) => dispatch({ type: "TeamInfo_Sent", payload: data }));
+    .then((data) => dispatch({ type: "TeamInfo_Sent", payload: data }))
+    .catch((error) => console.log(error));
 };
 
 export const fetchFootballNews = (query, dispatch) => {
@@ -36,9 +39,8 @@ export const fetchFootballNews = (query, dispatch) => {
     `https://newsapi.org/v2/everything?q=${query}&language=en&apiKey=ca37133bec7645e0b6319c1c4d91ac34`
   )
     .then((res) => res.json())
-    .then((data) =>
-      dispatch({ type: "Football_News", payload: data.articles })
-    );
+    .then((data) => dispatch({ type: "Football_News", payload: data.articles }))
+    .catch((error) => console.log(error));
 };
 
 export const fetchFixture = (league, dispatch) => {
@@ -49,7 +51,8 @@ export const fetchFixture = (league, dispatch) => {
     type: "GET",
   })
     .then((res) => res.json())
-    .then((data) => dispatch({ type: "Fetch_Fixture", payload: data.matches }));
+    .then((data) => dispatch({ type: "Fetch_Fixture", payload: data.matches }))
+    .catch((error) => console.log(error));
 };
 
 export const fetchTopScorers = (league, dispatch) => {
@@ -60,5 +63,6 @@ export const fetchTopScorers = (league, dispatch) => {
     type: "GET",
   })
     .then((res) => res.json())
-    .then((data) => dispatch({ type: "Fetch_Scorers", payload: data }));
+    .then((data) => dispatch({ type: "Fetch_Scorers", payload: data }))
+    .catch((error) => console.log(error));
 };

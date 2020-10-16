@@ -25,7 +25,7 @@ const TopScorers = ({ leagueState }) => {
               (club) => club.team.id === teamId
             )?.team.crestUrl;
             return (
-              <Table.Row>
+              <Table.Row key={player.id}>
                 <Table.Cell>
                   <Header as="h4" image>
                     <Image src={teamLogo} rounded size="mini" />

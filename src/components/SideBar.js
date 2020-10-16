@@ -14,7 +14,6 @@ import { fetchFixture } from "../helpers/fetchFunctions";
 const SideBar = () => {
   const [visible, setVisible] = useState(true);
   const leagueState = useSelector((state) => state.leagueReducer);
-  /*   const newsState = useSelector((state) => state.newsReducer); */
   const teamState = useSelector((state) => state.teamReducer);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -57,20 +56,6 @@ const SideBar = () => {
                   <TeamView teamState={teamState} {...props} />
                 )}
               />
-              {/*          <Route
-                path="/leagues"
-                render={() => (
-                  <Fragment>
-                    <MatchSlider leagueState={leagueState} />
-                    <LeaguesNavbar leagueState={leagueState} />
-                    <div className="middleSection">
-                      <NewsCarousel />
-                      <TopScorers leagueState={leagueState} />
-                    </div>
-                    <LeagueStandings leagueState={leagueState} />
-                  </Fragment>
-                )}
-              /> */}
               <Route
                 path="/"
                 exact

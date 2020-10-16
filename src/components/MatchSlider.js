@@ -27,7 +27,7 @@ const MatchSlider = ({ leagueState }) => {
                 /*      console.log(homeTeam);
                 console.log(awayTeam); */
                 return (
-                  <Fragment key={homeTeam.team.id}>
+                  <Fragment>
                     <div className="homeTeam">
                       <div className="homeTeamLogo">
                         <img src={homeTeam?.team?.crestUrl} alt="home Logo" />

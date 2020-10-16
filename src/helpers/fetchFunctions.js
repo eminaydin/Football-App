@@ -1,5 +1,5 @@
 export const fetchByCountry = (country, dispatch) => {
-  fetch(`http://api.football-data.org/v2/competitions/${country}/standings`, {
+  fetch(`https://api.football-data.org/v2/competitions/${country}/standings`, {
     headers: { "X-Auth-Token": "604b78a039154828b5a414079fc148a0" },
     url: "http://api.football-data.org/v2/matches?status='LIVE'",
     dataType: "json",
@@ -36,7 +36,7 @@ export const fetchTeam = (teamId, dispatch) => {
 
 export const fetchFootballNews = (query, dispatch) => {
   fetch(
-    `https://newsapi.org/v2/everything?q=${query}&language=en&apiKey=ca37133bec7645e0b6319c1c4d91ac34`
+    `https://gnews.io/api/v4/search?q=${query}&token=ff5c0ec77caa7129fc153d9c6a2171f3`
   )
     .then((res) => res.json())
     .then((data) => dispatch({ type: "Football_News", payload: data.articles }))

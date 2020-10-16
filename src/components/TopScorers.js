@@ -21,9 +21,9 @@ const TopScorers = ({ leagueState }) => {
         <Table.Body>
           {scorers?.scorers?.map(({ numberOfGoals, player, team }) => {
             let teamId = team.id;
-            let teamLogo = leagueState?.league?.standings[0].table?.find(
+            let teamLogo = leagueState?.league?.standings[0]?.table?.find(
               (club) => club.team.id === teamId
-            )?.team.crestUrl;
+            )?.team?.crestUrl;
             return (
               <Table.Row key={player.id}>
                 <Table.Cell>

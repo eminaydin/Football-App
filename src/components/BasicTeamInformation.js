@@ -17,19 +17,27 @@ const BasicTeamInformation = () => {
           <Header textAlign="center"> {state?.name}</Header>
         </Grid.Column>
         <Grid.Column verticalAlign="middle">
-          <Header>Stadium</Header>
+          <Header color="red" as="h1">
+            Stadium
+          </Header>
           <Header> {state?.venue}</Header>
         </Grid.Column>
         <Grid.Column verticalAlign="middle">
-          <Header>Club Colors</Header>
+          <Header color="red" as="h1">
+            Club Colors
+          </Header>
           <Header> {state?.clubColors}</Header>
         </Grid.Column>
         <Grid.Column verticalAlign="middle">
-          <Header>Coach</Header>
+          <Header color="red" as="h1">
+            Coach
+          </Header>
           <Header> {findTheCoach()}</Header>
         </Grid.Column>
         <Grid.Column verticalAlign="middle">
-          <Header>Country</Header>
+          <Header color="red" as="h1">
+            Country
+          </Header>
           <Header> {state?.area.name}</Header>
         </Grid.Column>
       </Grid.Row>

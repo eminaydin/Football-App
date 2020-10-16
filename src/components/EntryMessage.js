@@ -3,11 +3,10 @@ import { Segment } from "semantic-ui-react";
 
 const EntryMessage = () => {
   return (
-    <Segment basic size="large">
-      <h1>
-        In this website you can access to information related to your favourite
-        club, get yourself familiar with the competitions and many more. Just
-        explore!
+    <Segment basic size="large" style={{ height: "100vh" }}>
+      <h1 style={{ marginTop: "50%" }}>
+        In order to have better user experience please switch to browser. I
+        promise you won't regret.
       </h1>
     </Segment>
   );

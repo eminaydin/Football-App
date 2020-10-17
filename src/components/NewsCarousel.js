@@ -8,16 +8,23 @@ const NewsCarousel = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.newsReducer.generalNews);
   const [loading, setLoading] = useState(false);
+
+  const uniqueNews = state?.filter(
+    (v, i, a) =>
+      a.findIndex((t) => {
+        return t.image === v.image;
+      }) === i
+  );
   useEffect(() => {
     setLoading(true);
-    fetchFootballNews(`football AND transfer`, dispatch);
+    fetchFootballNews(`football AND english`, dispatch);
     setTimeout(() => {
       setLoading(false);
     }, 100);
   }, [dispatch]);
   return (
     <Carousel autoPlay>
-      {state?.map((news) => {
+      {uniqueNews?.map((news) => {
         return loading ? (
           <Placeholder fluid key={news.url}>
             <Placeholder.Image square />
